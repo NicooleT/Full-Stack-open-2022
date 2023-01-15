@@ -23,16 +23,18 @@ const App = () => {
      
     const [selected, setSelected] = useState(0)
     const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
+    
+    const random = () => {
+        setSelected((Math.floor(Math.random() * anecdotes.length)))
+    }
+
 
     const voteClick = () => {
         const allVotes = [...votes];
         allVotes[selected] += 1;
         setVotes(allVotes)
     }
-    const random = () => {
-        setSelected((Math.floor(Math.random() * anecdotes.length)))
-    }
-
+ 
     const bestVotes = votes.indexOf(Math.max(...votes));
   
     return (
